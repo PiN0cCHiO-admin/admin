@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>금속 가격 대시보드</title>
+    <meta name="description" content="Construction Material Insights dashboard for metal price trends and cost monitoring." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Construction Material Insights</p>
+          <h1>금속 가격 대시보드</h1>
+        </div>
+        <div class="toolbar">
+          <button class="ghost-button">Export</button>
+          <button class="primary-button">Update feed</button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="hero card">
+          <div class="hero-copy">
+            <p class="section-label">Market overview</p>
+            <h2>건설 자재 비용 추세를 실시간으로 모니터링</h2>
+            <p>
+              철강, 구리, 알루미늄, 아연 가격 변동을 추적해 조달 전략과 프로젝트 예산을
+              조정할 수 있습니다.
+            </p>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <span>Market index</span>
+              <strong>124.8</strong>
+              <small class="positive">+2.4% vs last month</small>
+            </div>
+            <div>
+              <span>Cost pressure</span>
+              <strong>High</strong>
+              <small class="warning">2 materials flagged</small>
+            </div>
+          </div>
+        </section>
+
+        <section id="kpi-grid" class="kpi-grid" aria-label="Material price summary"></section>
+
+        <section class="panel-grid">
+          <article class="card chart-card">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Price trend</p>
+                <h3>최근 12개월</h3>
+              </div>
+              <div class="segmented-control" aria-label="Trend filters">
+                <button class="active">USD</button>
+                <button>KRW</button>
+              </div>
+            </div>
+            <svg id="price-chart" viewBox="0 0 640 260" role="img" aria-label="Metal price trend chart"></svg>
+          </article>
+
+          <article class="card insights-card">
+            <div class="panel-header condensed">
+              <div>
+                <p class="section-label">Procurement signals</p>
+                <h3>인사이트</h3>
+              </div>
+            </div>
+            <ul id="insight-list" class="insight-list"></ul>
+          </article>
+        </section>
+
+        <section class="tables-grid">
+          <article class="card table-card">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Current pricing</p>
+                <h3>자재별 시장 가격</h3>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Material</th>
+                  <th>Price</th>
+                  <th>MoM</th>
+                  <th>Risk</th>
+                </tr>
+              </thead>
+              <tbody id="materials-table"></tbody>
+            </table>
+          </article>
+
+          <article class="card table-card">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Supply health</p>
+                <h3>공급망 상태</h3>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Region</th>
+                  <th>Lead time</th>
+                  <th>Inventory</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="region-table"></tbody>
+            </table>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
